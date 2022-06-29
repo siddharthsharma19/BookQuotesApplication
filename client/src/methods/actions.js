@@ -30,12 +30,13 @@ export const addbook = async (bookName, author) => {
   let response;
   const cookie = new Cookies()
   console.log(cookie.get("token"));
-  response = await axios.post(`${URL}/addbook`, {
+  response = await axios.post(`${URL}/addbook`,{
+    bookName:bookName,
+    author: author,},
+    {
     headers: {
       authorization: cookie.get("token"),
     },
-    bookName:bookName,
-    author: author
   });
   return response
 }
@@ -45,7 +46,7 @@ export const addquote = async (quote, bookName) => {
   const cookie = new Cookies()
   response = await axios.post(`${URL}/addquote`, {
       quote: quote, 
-      bookName : bookName,
+      bookName : bookName,},{
       headers : {
         authorization : cookie.get("token")
       }
