@@ -25,4 +25,6 @@ router.post("/editauthorname", actions.editAuthorName)
 router.get("/getallbooks", actions.getAllBooks)
 
 router.get("/getallquotes", actions.getAllQuotes)
+
+router.get("/getquotes", actions.getQuotes)
 module.exports = router

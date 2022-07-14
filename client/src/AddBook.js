@@ -7,7 +7,7 @@ import { addbook } from "./methods/actions"
 export const AddBook = () => {
     const [bookName, setBookName] = useState("")
     const [author, setAuthorName] = useState("")
-    const [disabledFlag, setDisabledFlag] = useState(false)
+    const [disabledFlag, setDisabledFlag] = useState(true)
 
     const navigate = useNavigate()
 
@@ -35,7 +35,7 @@ export const AddBook = () => {
     useEffect(() => {
         setDisabledFlag(false)
         if (bookName === "" || author === "") {
-            setDisabledFlag(false)
+            setDisabledFlag(true)
         }
     }, [bookName, author]);
 
@@ -53,13 +53,10 @@ export const AddBook = () => {
 
     return (
         <>
-        <Box align="center" width="40%" height="40%" backgroundColor="primary.main" style={{ display:'flex',justifyContent:'space-evenly', minHeight: '100vh'}}>
+        <Box style={{ display:'flex',justifyContent:'space-evenly', minHeight: '100vh'}}>
     <ThemeProvider theme={theme} >
     
-    <Grid  container spacing={0} align="center" justify="cente" direction="column" justifyContent="center" backgroundColor="white" margin={5} style={{width:500, maxHeight: '100vh'}}>
-      {<Box sx={{backgroundColor:"white"}}>
-
-      </Box> }
+    <Grid  container spacing={0}  justify="center" direction="column" justifyContent="center" backgroundColor="white" margin={5} style={{width:500, maxHeight: '100vh'}}>
              <div className="login-header">
             <ThemeProvider theme={theme}>
       <Typography component="h1" variant="h3" color="primary" >Add Book</Typography>

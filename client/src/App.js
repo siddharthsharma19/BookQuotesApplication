@@ -5,6 +5,7 @@ import {Welcome} from './Welcome';
 import { Signup } from './Signup';
 import {Home} from './Home'
 import { AddBook } from './AddBook';
+import { QuotesPage } from './QuotesPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route exact path="/signup" element={<Signup />}/>
       <Route exact path="/home" element={<Home/>} />
       <Route exact path="/addbook" element={<AddBook />}/>
+      <Route exact path="/home/book/:id" element={<QuotesPage />}/>
     </Routes>
   );
 }

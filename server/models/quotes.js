@@ -5,7 +5,7 @@ var quoteSchema = new Schema({
         type: String,
         require: true,
     },
-    bookName: {
+    bookid: {
         type: String, 
         require: true
     },

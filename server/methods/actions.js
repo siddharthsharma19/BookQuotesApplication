@@ -88,7 +88,7 @@ const addQuote = (req, res) => {
     let userName = helper.getUserId(req).username
     let newQuote = Quote({
         quote: req.body.quote,
-        bookName: req.body.bookName,
+        bookid: req.body.bookid,
         user: userName
     })
     newQuote.save(function(err, savedQuote) {
@@ -182,4 +182,13 @@ const getAllQuotes = (req, res) => {
   let user = helper.getUserId(req).username
   Quote.find({user:user}, (err, quotes) => {res.json(quotes)})
 }
-module.exports = {signUp, login, addBook, addQuote, editBookName, deleteBook, deleteQuote, editAuthorName, getAllBooks, getAllQuotes}
+
+const getQuotes = (req, res) => {
+  let bookid = req.query.bookid;
+  console.log(`book id: ${bookid}`);
+  let user = helper.getUserId(req).username
+  Quote.find({user:user, bookid:bookid}, (err, quotes) => {res.json(quotes)})
+
+}
+
+module.exports = {signUp, login, addBook, addQuote, editBookName, deleteBook, deleteQuote, editAuthorName, getAllBooks, getAllQuotes, getQuotes}

@@ -1,19 +1,21 @@
 import { Box, Button, Grid, TextField, Typography } from "@mui/material"
 import {createTheme, ThemeProvider} from "@mui/material/styles"
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { addquote } from "./methods/actions"
 
 export const AddQuote = () => {
     const [quote, setQuote] = useState("")
-    const [bookName, setBookName] = useState("")
+    const params = useParams();
+    const bookid = params.id
+    // const [bookName, setBookName] = useState("")
     const [disabledFlag, setDisabledFlag] = useState(false)
 
     const navigate = useNavigate()
 
-    const handleNameChange = (input) => {
-        setBookName(input.target.value)
-    }
+    // const handleNameChange = (input) => {
+    //     setBookName(input.target.value)
+    // }
 
     const handleQuote = (input) => {
         setQuote(input.target.value)
@@ -21,7 +23,7 @@ export const AddQuote = () => {
 
     const handleFormSubmit = (event) => {
         event.preventDefault()
-        addquote(quote, bookName).then((response) => {
+        addquote(quote, bookid).then((response) => {
             if (response.status === 200) {
                 navigate("/home")
             } else {
@@ -32,10 +34,10 @@ export const AddQuote = () => {
 
     useEffect(() => {
         setDisabledFlag(false)
-        if (bookName === "" || quote === "") {
+        if (quote === "") {
             setDisabledFlag(false)
         }
-    }, [bookName, quote]);
+    }, [quote]);
 
     const theme=createTheme();
     theme.typography.h3={
@@ -83,7 +85,7 @@ export const AddQuote = () => {
             />           
                 
                 <br />
-                <TextField
+                {/* <TextField
               margin="normal"
               required
               variant="outlined"
@@ -97,7 +99,7 @@ export const AddQuote = () => {
             />
                 
                
-                <br />
+                <br /> */}
                 <Button
              
               variant="contained"
