@@ -76,12 +76,12 @@ export const getAllQuotes = async() => {
   return response;
 }
 
-export const deletebook = async(bookName) => {
+export const deletebook = async(bookid) => {
   let response;
   const cookie = new Cookies()
   response = await axios.post(`${URL}/deletebook`, 
     {
-      bookName:bookName
+      bookid:bookid
     }, {
       headers: {
         authorization: cookie.get("token"),
@@ -102,5 +102,38 @@ export const getQuotes = async(bookid) => {
         authorization : cookie.get("token")
       }
     })
+  return response
+}
+
+export const editBook = async (bookid, bookName, author) => {
+  let response
+  const cookie = new Cookies()
+  console.log(`Edit Book ID : ${bookid}`);
+  response = await axios.post(`${URL}/editbook`, {
+    bookid:bookid,
+    bookName:bookName,
+    author: author
+  },
+     {
+    headers :{
+      authorization : cookie.get("token")
+    }
+  })
+  return response
+}
+
+export const deleteQuote = async (quoteid) => {
+  let response
+  response = await axios.post(`${URL}/deletequote`, {
+    quoteid : quoteid
+  })
+  return response
+}
+
+export const editQuote = async(quoteid, quote) => {
+  let response = await axios.post(`${URL}/editquote`, {
+    quoteid : quoteid,
+    quote : quote
+  })
   return response
 }

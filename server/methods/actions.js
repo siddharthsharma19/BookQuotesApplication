@@ -101,6 +101,27 @@ const addQuote = (req, res) => {
     })
 }
 
+const editBook = (req, res) => {
+  let user = helper.getUserId(req).username
+  let bookid = req.body.bookid
+  console.log(`edit book book id : ${bookid}`)
+  let author = req.body.author
+  let book = req.body.bookName
+  Book.findOneAndUpdate({
+    _id : bookid, user:user
+  }, 
+  {$set : {bookName : book, author:author}}, 
+  (err, book) => {
+    if (err) {
+      console.log(err)
+      res.status(403).send(err)
+    } else {
+      console.log(book)
+      res.status(200).send(book)
+    }
+  })
+}
+
 const editBookName = (req, res) => {
     let user = helper.getUserId(req).username;
     let oldBookName = req.body.oldBookName;
@@ -128,30 +149,18 @@ const editBookName = (req, res) => {
 
 const deleteBook = (req, res) => {
   let user = helper.getUserId(req).username;
-  let bookName = req.body.bookName
-  Book.findOneAndDelete({bookName: bookName, user:user}, (err, book) => {
+  let bookid = req.body.bookid
+  Book.findOneAndDelete({_id: bookid, user:user}, (err, book) => {
     if (err) {
       res.status(403).send(err)
     } else {
-      Quote.deleteMany({bookName:bookName}, (err, quote) => {
+      Quote.deleteMany({bookid:bookid}, (err, quote) => {
         if (err) {
           res.status(403).send(err)
         } else {
           res.status(200).send({book: book, quote: quote})
         }
       })
-    }
-  })
-}
-
-const deleteQuote = (req, res) => {
-  let user = helper.getUserId(req).username;
-  let quote = req.body.quote
-  Quote.findOneAndDelete({quote: quote, user:user}, (err, quote) => {
-    if (err) {
-      res.status(403).send(err)
-    } else {
-      res.status(200).send({quote:quote})
     }
   })
 }
@@ -191,4 +200,35 @@ const getQuotes = (req, res) => {
 
 }
 
-module.exports = {signUp, login, addBook, addQuote, editBookName, deleteBook, deleteQuote, editAuthorName, getAllBooks, getAllQuotes, getQuotes}
+const deleteQuote = (req, res) => {
+  let quoteid = req.body.quoteid
+  Quote.findOneAndDelete({
+    _id : quoteid
+  }, (err, quote) => {
+    if (err) {
+      res.status(403).send(err)
+    } else {
+      res.status(200).send(quote)
+    }
+  })
+}
+
+const editQuote = (req, res) => {
+  let quoteid = req.body.quoteid
+  let quote = req.body.quote
+  Quote.findOneAndUpdate({
+    _id : quoteid
+  }, {
+    $set : {
+      quote : quote
+    }
+  }, (err, quote) => {
+    if (err) {
+      res.status(403).send(err)
+    } else {
+      res.status(200).send(quote)
+    }
+  })
+}
+
+module.exports = {signUp, login, addBook, addQuote, editBookName, deleteBook, deleteQuote, editAuthorName, getAllBooks, getAllQuotes, getQuotes, editBook, editQuote}

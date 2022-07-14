@@ -1,9 +1,37 @@
-import { IconButton, List, ListItem, ListItemText, Typography } from "@mui/material"
+import { IconButton, Input, List, ListItem, ListItemText, Typography } from "@mui/material"
 import {Delete, Edit, Save} from '@mui/icons-material'
-import { deletebook } from "../methods/actions"
+import { deletebook, editBook } from "../methods/actions"
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { QuotesPage } from "../QuotesPage";
+import { useEffect, useState } from "react";
 export const BookCard = (props) => {
+    const navigate = useNavigate();
+    const [editClicked, setEditClicked] = useState(false)
+    const [editBookName, setEditBookName] = useState(props.props.bookName)
+    const [editAuthorName, setEditAuthorName] = useState(props.props.author)
+    const handleEdit = () => {
+        setEditClicked(!editClicked)
+    }
+    const handleAuthorChange = (input) => {
+        setEditAuthorName(input.target.value)
+    }
+    const handleBookName = (input) => {
+        setEditBookName(input.target.value)
+    }
+
+    const handleSaveChanges = (event) => {
+        event.preventDefault()
+        console.log(editBookName)
+        console.log(editAuthorName)
+        editBook(props.props._id, editBookName, editAuthorName).then((response) => {
+            if (response.status === 200) {
+                navigate("/home")
+            } else {
+                alert("Failed to add book")
+            }
+        })
+    }
+
     const handleDelete = (input) => {
         deletebook(input).then((response)=>{
             if (response.status === 200) {
@@ -13,12 +41,19 @@ export const BookCard = (props) => {
             }
         })
     }
+
     return (
         <>
             {console.log(props.props._id)}
             <List sx={{}}>
                 <ListItem>
-                    <ListItemText>
+                    {
+                        editClicked ?<ListItemText>
+                            <Input autoFocus="true" value={editBookName} onChange={handleBookName}></Input>
+                            <br />
+                            <Input value={editAuthorName} onChange={handleAuthorChange}></Input>
+            
+                    </ListItemText> :<ListItemText>
                         <h2>
 <Link to={`book/${props.props._id}`}>{props.props.bookName}</Link>
             
@@ -28,9 +63,11 @@ export const BookCard = (props) => {
             {props.props.author}
                         </h4>
                     </ListItemText>
-                    <IconButton><Save /></IconButton>
-                    <IconButton><Edit /></IconButton>
-                    <IconButton onClick={() => handleDelete(props.props.bookName)}><Delete /></IconButton>
+                    }
+                    
+                    <IconButton onClick={handleSaveChanges}><Save /></IconButton>
+                    <IconButton onClick={handleEdit}><Edit /></IconButton>
+                    <IconButton onClick={() => handleDelete(props.props._id)}><Delete /></IconButton>
                 </ListItem>
             </List>
         </>

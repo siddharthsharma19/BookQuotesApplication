@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, List } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AddQuote } from "./AddQuote";
@@ -22,12 +22,12 @@ export const QuotesPage = (props) => {
                 <Box sx={{mx:2,mt:4,display:'flex', flexDirection:'row'}} >
                     <AddQuote />
                 </Box>
-                <Box sx={{mx:2,mt:4,display:'flex', flexDirection:'column'}}>
+                <List sx={{mx:2,mt:4,display:'flex', flexDirection:'column'}}>
                     {console.log(quotesArray.length)}
                     {quotesArray.map((quote) => {
                         return (<QuoteCard props={quote}/>)
                     })}
-                </Box>
+                </List>
             </Box>
         </>
     )
