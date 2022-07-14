@@ -43,22 +43,21 @@ export const Login = () => {
   }, [email, password]);
 
   
-  const theme=createTheme();
-  theme.typography.h3={
-    fontSize: '1.2rem',
+//   const theme=createTheme();
+//   theme.typography.h3={
+//     fontSize: '1.2rem',
     
-  '@media (min-width:600px)': {
-    fontSize: '1.5rem',
-  },
-  [theme.breakpoints.up('md')]: {
-    fontSize: '2.4rem',
-  },
-};
+//   '@media (min-width:600px)': {
+//     fontSize: '1.5rem',
+//   },
+//   [theme.breakpoints.up('md')]: {
+//     fontSize: '2.4rem',
+//   },
+// };
 
   return (
     <>
-    <Box align="center"  backgroundColor="primary.main" style={{ display:'flex',justifyContent:'space-evenly', minHeight: '100vh'}}>
-    <ThemeProvider theme={theme} >
+    <Box align="center" style={{ display:'flex',justifyContent:'space-evenly', minHeight: '100vh'}}>
     
     <Grid  container
     spacing={0}
@@ -66,18 +65,10 @@ export const Login = () => {
     justify="cente"
     direction="column"
     justifyContent="center"
-    backgroundColor="white"
     margin={5}
-    style={{width:500, maxHeight: '100vh'}}
-    >
-      {<Box sx={{backgroundColor:"white"}}>
-
-      </Box> }
+    style={{width:500, maxHeight: '100vh'}}>
              <div className="login-header">
-            <ThemeProvider theme={theme}>
       <Typography component="h1" variant="h3" color="primary" >Login</Typography>
-       <Typography component="h1" variant="h4" color="primary">  Enter your credentials.</Typography>
-        </ThemeProvider>         
           </div>
           
           
@@ -127,7 +118,6 @@ export const Login = () => {
               </div>
             </form>
             </Grid>
-          </ThemeProvider>
           {/* <img src={"/assets/welcome-img.jpg"} style={{width:550,height:400}}/> */}
           
     </Box>

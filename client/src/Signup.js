@@ -64,7 +64,7 @@ const Signup = () => {
         signUp(email, password, name, username)
         .then((statusCode)=>{
             if(statusCode===200){
-              navigate("/login");
+              window.location.reload();
             } 
             else{
               alert("error");
@@ -72,40 +72,26 @@ const Signup = () => {
         })
     }
   };
-  const theme=createTheme();
-  theme.typography.h3={
-    fontSize: '1.2rem',
-    
-  '@media (min-width:600px)': {
-    fontSize: '1.5rem',
-  },
-  [theme.breakpoints.up('md')]: {
-    fontSize: '2.4rem',
-  },
-};
 
   return (
-    <Box align="center"  backgroundColor="primary.main" style={{ display:'flex',justifyContent:'space-evenly', minHeight: '100vh'}}>
-     <ThemeProvider theme={theme}>
+    <Box align="center" style={{ display:'flex',justifyContent:'space-evenly', minHeight: '70vh', maxHeight:'100vh'}}>
+
      <Grid  container
     spacing={0}
     align="center"
     // justify="center"
     direction="column"
     justifyContent="center"
-    backgroundColor="white"
     margin={5}
     paddingTop={6}
-    style={{width:500, minHeight: '100vh'}}
-    >
+    style={{width:500, minHeight: '100vh'}}>
       <div className="login-page">
         <div className="form">
           <div className="login">
           <div className="login-header">
-                <ThemeProvider theme={theme}>
                  <Typography component="h1" variant="h3" color="primary"> Register</Typography>
                   {/* <Typography component="h1" variant="h4" color="#00a0dc"> Please enter your credentials to register.</Typography> */}
-                </ThemeProvider>
+          
             </div>
             <form className="login-form">
               <div>
@@ -201,7 +187,6 @@ const Signup = () => {
         </div>
       </div>
       </Grid>
-      </ThemeProvider>
     </Box>
   );
 };
