@@ -1,9 +1,8 @@
-import { IconButton, Input, List, ListItem, ListItemText, Typography } from "@mui/material"
+import { IconButton, Input, ListItem, ListItemText } from "@mui/material"
 import {Delete, Edit, Save} from '@mui/icons-material'
 import { deletebook, editBook } from "../methods/actions"
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { QuotesPage } from "../QuotesPage";
-import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 export const BookCard = (props) => {
     const navigate = useNavigate();
     const [editClicked, setEditClicked] = useState(false)

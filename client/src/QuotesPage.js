@@ -1,4 +1,4 @@
-import { AppBar, Box, Button, Grid, List, Toolbar, Typography } from "@mui/material";
+import { AppBar, Button, Grid, List, Toolbar, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AddQuote } from "./AddQuote";
@@ -10,11 +10,10 @@ export const QuotesPage = (props) => {
     const [quotesArray, setQuotessArray] = useState([]);
     console.log(`Quotes Page ${params.id}`)
     useEffect(()=>{
-        
         getQuotes(params.id).then((data)=>{
             setQuotessArray(data.data)
         })
-    }, [])
+    }, [params.id])
 
     return (
         <>

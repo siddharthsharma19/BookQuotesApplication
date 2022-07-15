@@ -1,5 +1,5 @@
-import { Box, Button, Grid, TextField, Typography } from "@mui/material"
-import {createTheme, ThemeProvider} from "@mui/material/styles"
+import { Button, Grid, TextField, Typography } from "@mui/material"
+import {createTheme} from "@mui/material/styles"
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { addquote } from "./methods/actions"

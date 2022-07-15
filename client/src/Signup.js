@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { signUp } from "./methods/actions";
 import Grid from '@mui/material/Grid';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { Box } from "@mui/material";
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -16,7 +13,6 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [disabledFlag, setDisabledFlag] = useState(true);
   const [isLoading, setisLoading] = useState(false);
-  const navigate = useNavigate();
 
   let passwordMatch = password === confirmPassword ? true : false;
 

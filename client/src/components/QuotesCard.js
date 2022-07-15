@@ -1,4 +1,4 @@
-import { IconButton, Input, List, ListItem, ListItemAvatar, ListItemText} from "@mui/material"
+import { IconButton, Input, ListItem, ListItemText} from "@mui/material"
 import {Delete, Edit, Save} from '@mui/icons-material'
 import { deleteQuote, editQuote } from "../methods/actions"
 import { useState } from "react"

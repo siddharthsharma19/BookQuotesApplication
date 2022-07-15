@@ -1,14 +1,8 @@
-import { Cookie } from "@mui/icons-material";
-import { AppBar, Box, Button, Grid, List, Toolbar, Typography } from "@mui/material";
-import { border } from "@mui/system";
+import { AppBar, Button, Grid, List, Toolbar, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
-import Cookies from "universal-cookie";
 import { AddBook } from "./AddBook";
-import { AddQuote } from "./AddQuote";
 import { BookCard } from "./components/BookCard";
-import { QuoteCard } from "./components/QuotesCard";
-import { getAllBooks, getAllQuotes } from "./methods/actions";
+import { getAllBooks } from "./methods/actions";
 
 export const Home = () => {
     const [booksArray, setBooksArray] = useState([]);

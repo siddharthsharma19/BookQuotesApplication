@@ -1,7 +1,6 @@
 import {Login} from './Login'
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import {Welcome} from './Welcome';
 import { Signup } from './Signup';
 import {Home} from './Home'
 import { AddBook } from './AddBook';
