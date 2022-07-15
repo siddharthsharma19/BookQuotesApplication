@@ -24,7 +24,7 @@ export const AddBook = () => {
         console.log(author)
         addbook(bookName, author).then((response) => {
             if (response.status === 200) {
-                navigate("/home")
+                window.location.reload()
             } else {
                 alert("Failed to add book")
             }

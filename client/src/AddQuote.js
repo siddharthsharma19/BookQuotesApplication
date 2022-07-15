@@ -25,7 +25,7 @@ export const AddQuote = () => {
         event.preventDefault()
         addquote(quote, bookid).then((response) => {
             if (response.status === 200) {
-                navigate("/home")
+                window.location.reload()
             } else {
                 alert("Failed to add book")
             }

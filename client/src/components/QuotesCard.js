@@ -20,7 +20,7 @@ export const QuoteCard = (props) => {
         console.log(editQuoteChange)
         editQuote(props.props._id, editQuoteChange).then((response) => {
             if (response.status === 200) {
-                navigate("/home")
+                window.location.reload()
             } else {
                 alert("Failed to add book")
             }
@@ -30,7 +30,7 @@ export const QuoteCard = (props) => {
     const handleDelete = (input) => {
         deleteQuote(input).then((response)=>{
             if (response.status === 200) {
-                alert("Successful");
+                window.location.reload()
             } else {
                 alert("Failed")
             }

@@ -24,7 +24,7 @@ export const BookCard = (props) => {
         console.log(editAuthorName)
         editBook(props.props._id, editBookName, editAuthorName).then((response) => {
             if (response.status === 200) {
-                setEditClicked(!editClicked)
+                window.location.reload()
             } else {
                 alert("Failed to add book")
             }
@@ -34,7 +34,7 @@ export const BookCard = (props) => {
     const handleDelete = (input) => {
         deletebook(input).then((response)=>{
             if (response.status === 200) {
-                alert("Successful");
+                window.location.reload()
             } else {
                 alert("Failed")
             }
