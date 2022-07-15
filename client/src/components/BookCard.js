@@ -24,7 +24,7 @@ export const BookCard = (props) => {
         console.log(editAuthorName)
         editBook(props.props._id, editBookName, editAuthorName).then((response) => {
             if (response.status === 200) {
-                navigate("/home")
+                setEditClicked(!editClicked)
             } else {
                 alert("Failed to add book")
             }
