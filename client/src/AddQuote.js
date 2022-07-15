@@ -53,20 +53,11 @@ export const AddQuote = () => {
 
     return (
         <>
-        <Box align="center" width="40%" height="40%" backgroundColor="primary.main" style={{ display:'flex',justifyContent:'space-evenly', minHeight: '100vh'}}>
-    <ThemeProvider theme={theme} >
     
-    <Grid  container spacing={0} align="center" justify="cente" direction="column" justifyContent="center" backgroundColor="white" margin={5} style={{width:500, maxHeight: '100vh'}}>
-      {<Box sx={{backgroundColor:"white"}}>
-
-      </Box> }
+    <Grid  container spacing={0}  justify="center" direction="column" justifyContent="center" margin={5} style={{width:'40%', maxHeight: '100vh'}}>
              <div className="login-header">
-            <ThemeProvider theme={theme}>
       <Typography component="h1" variant="h3" color="primary" >Add Quote</Typography>
-        </ThemeProvider>         
           </div>
-          
-          
             <form className="login-form">
               <div>
                 
@@ -85,21 +76,7 @@ export const AddQuote = () => {
             />           
                 
                 <br />
-                {/* <TextField
-              margin="normal"
-              required
-              variant="outlined"
-               size="small"
-              name="bookname"
-              label="Book"
-              type="text"
-              id="bookname"
-              style={{width:'80%'}}
-              onChange={handleNameChange}
-            />
                 
-               
-                <br /> */}
                 <Button
              
               variant="contained"
@@ -112,10 +89,6 @@ export const AddQuote = () => {
               </div>
             </form>
             </Grid>
-          </ThemeProvider>
-          {/* <img src={"/assets/welcome-img.jpg"} style={{width:550,height:400}}/> */}
-          
-    </Box>
         </>
     )
 }

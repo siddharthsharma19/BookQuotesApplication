@@ -1,4 +1,4 @@
-import { Box, List } from "@mui/material";
+import { AppBar, Box, Button, Grid, List, Toolbar, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AddQuote } from "./AddQuote";
@@ -18,17 +18,25 @@ export const QuotesPage = (props) => {
 
     return (
         <>
-            <Box sx={{mx:2,mt:4,display:'flex', flexDirection:'row'}}>
-                <Box sx={{mx:2,mt:4,display:'flex', flexDirection:'row'}} >
+            <AppBar position="sticky">
+  <Toolbar>
+    <Typography sx={{ml:5}} variant="h6">
+      Books&Quotes
+    </Typography>
+    <Button  sx={{marginLeft:"auto", color:"inherit"}} >LogOut</Button>
+  </Toolbar>
+</AppBar>
+            <Grid sx={{display:'flex', flexDirection:'row'}}>
                     <AddQuote />
-                </Box>
-                <List sx={{mx:2,mt:4,display:'flex', flexDirection:'column'}}>
+            
+                <List sx={{mt:"5%", width:"500px", height:"wrap-content"}}>
+                    <Typography sx={{padding: 2}} variant="h3">Quotes</Typography>
                     {console.log(quotesArray.length)}
-                    {quotesArray.map((quote) => {
+                    {quotesArray.length>0?quotesArray.map((quote) => {
                         return (<QuoteCard props={quote}/>)
-                    })}
+                    }):<Typography>You need to add quotes.</Typography>}
                 </List>
-            </Box>
+            </Grid>
         </>
     )
 }

@@ -39,19 +39,17 @@ export const QuoteCard = (props) => {
 
     return (
         <>
-            <List sx={{}}>
-                <ListItem>
+                <ListItem sx={{border:"2px solid grey", m:2}}>
                     {
                         editClicked ? <Input value={editQuoteChange} onChange={handleQuoteChange}></Input> : <ListItemText>
                         <h2>{props.props.quote}</h2>
                     </ListItemText>
                     }
                     
-                    <IconButton onClick={handleSaveChanges}><Save />Save</IconButton>
-                    <IconButton onClick={handleEdit}><Edit />Edit</IconButton>
-                    <IconButton onClick={() => {handleDelete(props.props._id)}}><Delete/>Delete</IconButton>
+                    <IconButton sx={{color:"cadetblue"}} onClick={handleSaveChanges}><Save /></IconButton>
+                    <IconButton sx={{color:"green"}} onClick={handleEdit}><Edit /></IconButton>
+                    <IconButton sx={{color:"red"}} onClick={() => {handleDelete(props.props._id)}}><Delete/></IconButton>
                 </ListItem>
-            </List>
         </>
         
         // <>

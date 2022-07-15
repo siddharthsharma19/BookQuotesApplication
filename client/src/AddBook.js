@@ -39,31 +39,12 @@ export const AddBook = () => {
         }
     }, [bookName, author]);
 
-    const theme=createTheme();
-    theme.typography.h3={
-        fontSize: '1.2rem',
-            
-        '@media (min-width:600px)': {
-            fontSize: '1.5rem',
-        },
-        [theme.breakpoints.up('md')]: {
-            fontSize: '2.4rem',
-        },
-    }
-
     return (
         <>
-        <Box style={{ display:'flex',justifyContent:'space-evenly', minHeight: '100vh'}}>
-    <ThemeProvider theme={theme} >
-    
-    <Grid  container spacing={0}  justify="center" direction="column" justifyContent="center" backgroundColor="white" margin={5} style={{width:500, maxHeight: '100vh'}}>
+    <Grid  container spacing={0}  justify="center" direction="column" justifyContent="center" margin={5} style={{width:'40%', maxHeight: '100vh'}}>
              <div className="login-header">
-            <ThemeProvider theme={theme}>
       <Typography component="h1" variant="h3" color="primary" >Add Book</Typography>
-        </ThemeProvider>         
           </div>
-          
-          
             <form className="login-form">
               <div>
                 
@@ -109,10 +90,8 @@ export const AddBook = () => {
               </div>
             </form>
             </Grid>
-          </ThemeProvider>
           {/* <img src={"/assets/welcome-img.jpg"} style={{width:550,height:400}}/> */}
-          
-    </Box>
+        
         </>
     )
 }

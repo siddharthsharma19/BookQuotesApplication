@@ -44,9 +44,9 @@ export const BookCard = (props) => {
 
     return (
         <>
+    
             {console.log(props.props._id)}
-            <List sx={{}}>
-                <ListItem>
+                <ListItem sx={{border:"2px solid grey", borderRadius:"10",m:2}}>
                     {
                         editClicked ?<ListItemText>
                             <Input autoFocus="true" value={editBookName} onChange={handleBookName}></Input>
@@ -55,7 +55,7 @@ export const BookCard = (props) => {
             
                     </ListItemText> :<ListItemText>
                         <h2>
-<Link to={`book/${props.props._id}`}>{props.props.bookName}</Link>
+<Link to={`book/${props.props._id}`} style={{ textDecoration: 'none' }}>{props.props.bookName}</Link>
             
                         </h2>
                         <h4>
@@ -65,11 +65,10 @@ export const BookCard = (props) => {
                     </ListItemText>
                     }
                     
-                    <IconButton onClick={handleSaveChanges}><Save /></IconButton>
-                    <IconButton onClick={handleEdit}><Edit /></IconButton>
-                    <IconButton onClick={() => handleDelete(props.props._id)}><Delete /></IconButton>
+                    <IconButton sx={{color:"cadetblue"}} onClick={handleSaveChanges}><Save /></IconButton>
+                    <IconButton sx={{color:"green"}} onClick={handleEdit}><Edit /></IconButton>
+                    <IconButton sx={{color:"red"}} onClick={() => handleDelete(props.props._id)}><Delete /></IconButton>
                 </ListItem>
-            </List>
         </>
     )
 }
