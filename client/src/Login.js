@@ -57,16 +57,14 @@ export const Login = () => {
 
   return (
     <>
-    <Box align="center" style={{ display:'flex',justifyContent:'space-evenly', minHeight: '100vh'}}>
-    
+    {/* <Box align="center" style={{ display:'flex',justifyContent:'space-evenly', minHeight: '100vh'}}> */}
     <Grid  container
     spacing={0}
     align="center"
-    justify="cente"
+    justify="center"
     direction="column"
-    justifyContent="center"
-    margin={5}
-    style={{width:500, maxHeight: '100vh'}}>
+    justifyContent="space-evenly"
+    style={{width:"100%", maxHeight: '100%'}}>
              <div className="login-header">
       <Typography component="h1" variant="h3" color="primary" >Login</Typography>
           </div>
@@ -120,7 +118,7 @@ export const Login = () => {
             </Grid>
           {/* <img src={"/assets/welcome-img.jpg"} style={{width:550,height:400}}/> */}
           
-    </Box>
+    {/* </Box> */}
     </>
   );
 };

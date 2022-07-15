@@ -41,7 +41,7 @@ export const QuoteCard = (props) => {
         <>
                 <ListItem sx={{border:"2px solid grey", m:2}}>
                     {
-                        editClicked ? <Input value={editQuoteChange} onChange={handleQuoteChange}></Input> : <ListItemText>
+                        editClicked ? <Input value={editQuoteChange} onChange={handleQuoteChange} autoFocus = {true}></Input> : <ListItemText>
                         <h2>{props.props.quote}</h2>
                     </ListItemText>
                     }

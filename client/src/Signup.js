@@ -74,7 +74,7 @@ const Signup = () => {
   };
 
   return (
-    <Box align="center" style={{ display:'flex',justifyContent:'space-evenly', minHeight: '70vh', maxHeight:'100vh'}}>
+    // <Box align="center" style={{ display:'flex',justifyContent:'space-evenly', minHeight: '70vh', maxHeight:'100vh'}}>
 
      <Grid  container
     spacing={0}
@@ -82,9 +82,7 @@ const Signup = () => {
     // justify="center"
     direction="column"
     justifyContent="center"
-    margin={5}
-    paddingTop={6}
-    style={{width:500, minHeight: '100vh'}}>
+    style={{width:"100%", maxHeight: '100%'}}>
       <div className="login-page">
         <div className="form">
           <div className="login">
@@ -187,7 +185,7 @@ const Signup = () => {
         </div>
       </div>
       </Grid>
-    </Box>
+    // </Box>
   );
 };
 
