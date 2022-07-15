@@ -3,10 +3,8 @@ import { login } from "./methods/actions";
 import { useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 import Grid from '@mui/material/Grid';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import { Box } from "@mui/material";
 import Button from '@mui/material/Button';
 
 export const Login = () => {
